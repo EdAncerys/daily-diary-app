@@ -2,8 +2,8 @@ require 'sinatra/base'
 
 class DailyDiaryApp < Sinatra::Base
 
-  get '/' do
-    'Hello World'
+  get '/diary' do
+    erb :diary
   end
 
   run! if app_file == $0
