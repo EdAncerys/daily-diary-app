@@ -1,4 +1,4 @@
-feature 'diary page' do
+feature 'home page' do
   scenario 'able to see home page content' do
     visit('/')
     expect(page).to have_content 'Welcome to Diary App'

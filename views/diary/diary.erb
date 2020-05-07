@@ -1,3 +1,7 @@
 <h1>Add Diary Entry</h1>
-<h3><a href='/diary/sign_up'>Sign Up</a></h3>
-<h3><a href='/diary/log_in'>Log In</a></h3>
+
+<form action='/diary/new' method='get'>
+  <input value='Add new Diary' type='submit' name='link_to_diary' >
+</form>
+
+Title: <%= @title %>
