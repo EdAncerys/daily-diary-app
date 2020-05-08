@@ -1,0 +1,14 @@
+<h1>Edit Diary Title and Body</h1>
+
+
+<% @diary_edit.each do |foo| %>
+  <form action="/diary-edit/<%= foo['id'] %>" method='post'>
+    <input placeholder='<%= foo['title'] %>' type='text' name='title-edit' >
+    <input placeholder='<%= foo['body'] %>' type='text' name='body-edit' >
+    <input value='Edit Diary' type='submit' >
+  </form>
+<% end %>
+
+<form action='/diary' method='get'>
+  <input value='Back to List' type='submit'>
+</form>

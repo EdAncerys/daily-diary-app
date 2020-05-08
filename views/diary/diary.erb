@@ -1,7 +1,38 @@
-<h1>Add Diary Entry</h1>
+<! DOCTYPE html >
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='css/style.css'>
+    <title>Diary</title>
+  </head>
+  <body>
 
-<form action='/diary/new' method='get'>
-  <input value='Add new Diary' type='submit' name='link_to_diary' >
-</form>
+      <h1>Add Diary Entry</h1>
+      
+    <div class='main_div'>
+    <form action='/diary/new' method='get'>
+      <input value='Add new Diary' type='submit' >
+    </form>
+    </div>
 
-Title: <%= @title %>
+    <ul>
+      <% @diary.each do |diary| %>
+        <li class='list'>
+          <div class='main_div'>
+          <a href="/diary/<%= diary['id']%>/<%= diary['title'] %>" ><%= diary['title']%></a>
+          <form action="/diary/<%= diary['id'] %>/delete" method='post' >
+            <input value='Dlete Diary' type='submit' name='<%= diary['id'] %>' >
+          </form>
+
+          <form action='/diary/edit/<%= diary['id'] %>/<%= diary['title'] %>' method='get'>
+            <input value='Edit Diary' type='submit' >
+          </form>
+          </div>
+
+        </li>
+      <% end %>
+    </ul>
+
+
+  </body>
+</html>
+

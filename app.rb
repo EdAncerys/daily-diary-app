@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/diary'
 
 class DailyDiaryApp < Sinatra::Base
   enable :sessions
@@ -16,7 +17,7 @@ class DailyDiaryApp < Sinatra::Base
   end
 
   get '/diary' do
-    @title = session[:title]
+    @diary = Diary.all
     erb :'diary/diary'
   end
 
@@ -25,7 +26,27 @@ class DailyDiaryApp < Sinatra::Base
   end
 
   post '/diary-submit' do
-    session[:title] = params[:title]
+    Diary.create(title: params[:title], body: params[:body])
+    redirect :'/diary'
+  end
+
+  get '/diary/:id/:title' do
+    @diary_id = Diary.find(id: params[:id])
+    erb :'/diary/view'
+  end
+
+  post '/diary/:id/delete' do
+    Diary.delete(id: params[:id])
+    redirect :'/diary'
+  end
+
+  get '/diary/edit/:id/:title' do
+    @diary_edit = Diary.find(id: params[:id])
+    erb :'diary/edit'
+  end
+
+  post '/diary-edit/:id' do
+    Diary.edit(id: params['id'], title: params['title-edit'], body: params['body-edit'])
     redirect '/diary'
   end
 

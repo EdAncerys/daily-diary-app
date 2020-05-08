@@ -1,0 +1,14 @@
+<h1>Your Diary</h1>
+
+<ul>
+  <% @diary_id.each do |article| %>
+    <li>
+      <h3><%= article['title'] %></h3>
+      <h3><%= article['body'] %></h3>
+    </li>
+    <% end %>
+</ul>
+
+<form action='/diary' method='get' >
+  <input value='Back to Diary List' type='submit' name='/diary' >
+</form>
