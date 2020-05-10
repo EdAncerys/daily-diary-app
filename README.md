@@ -1,38 +1,36 @@
-Chitter Challenge
+Diary App Challenge
 =================
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+We are going to write a small Diary App that will allow the users to add diary entry which saves it to the database.
 
 **Domain Model:**
 
-| DIARY        | USER             |
-| :------------- |:-----------------|
-| -------------- |------------------|
-|                | @id              |
-|                | @name            |
-|                | @username        |
-|                | @email           |
-|                | @password        |
-| -------------- |------------------|
-| #print_diary   | #valid_log_in    |
-| #post_diary    |
-| #log_in        |
-| #log_out       |
+Diary | User 
+:--- | :---
+ | @username
+ | @email  
+ | @password 
+ | 
+#create | #valid_log_in?
+#all |
+#find | 
+#delete | 
+#edit | 
 
 
 **Databases Plan:**
 
-- Table Peeps:
+- Table diary:
 
-|  id  |    title   | body | post_time |  post_date | users_id  |
-|:------|:-----------|:-----------|:-----------|:------------|:-----------|
-|  1   |  'Hello title'  |  'Hello body' | 13:25:00 | 2020-01-14 |     1     |
-|  2   |  'World title'  |  'World body' | 17:05:00 | 2020-03-12 |     1     |
+|  id  |    title   | body | post_time | users_id  |
+|:------|:-----------|:-----------|:-----------|:------------
+|  1   |  'Diary One'  |  'Diary One body' | 13:25  |     1     
+|  2   |  'Diary Two'  |  'Diary Two body' | 17:05  |     1     
 
 - Table Users:
 
-|  id  |    name   |   username  |      email      |  password  |
-|------|-----------|-------------|-----------------|------------|
-|  1   |  'Dino'   | SuperCactus | dino@cactus.com | itsasecret |
+|  id  |    name   |      email      |  password  
+|:-----|:----------|:----------------|:-----------
+|  1   |  'Frodo'  | 'frodo@eamil.com' | 'password' 
 
 
 
@@ -48,20 +46,19 @@ post 'diary/add_diary'  --> saves diary to DB redirects to 'diary/list'
 get 'diary/list'        --> displays all TITLE diaries 
 get 'diary/list:id'     --> displays diary selected
 
-
 ```
 
 ## Instructions to set up Database:
 - Connect to psql
-- Create the database using the psql command `CREATE DATABASE chitter;`
-- Connect to the database using the pqsl command `\c chitter;`
-- Run the query we have saved in the file 01_create_peeps_table.sql
+- Create the database using the psql command `CREATE DATABASE diary;`
+- Connect to the database using the pqsl command `\c DATABASE NAME;`
+- Run the query we have saved in the file 01_create_diary_table.sql
 - Run the query we have saved in the file 02_create_users_table.sql
 
 ### create a test environment
-- Create the database using the psql command `CREATE DATABASE chitter_test;`
-- Connect to the database using the pqsl command `\c chitter_test;`
-- Run the query we have saved in the file 01_create_peeps_table.sql
+- Create the database using the psql command `CREATE DATABASE diary_test;`
+- Connect to the database using the pqsl command `\c diary_test;`
+- Run the query we have saved in the file 01_create_diary_table.sql
 - Run the query we have saved in the file 02_create_users_table.sql
 
 
